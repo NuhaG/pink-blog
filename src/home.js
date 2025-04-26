@@ -1,19 +1,22 @@
 import { useState } from "react";
 
 const Home = () => {
-    const [name, setName] = useState('Neha'); {/*Hook: used to re-render on page, first val is initial val and its updated using the second func*/}
-    const [age,setAge] = useState(18);
-
-    const handleClick = (e) => {
-        setName('Sam');
-        setAge(20);
-    }
+    const [blogs,setBlogs] = useState([
+        { title: 'My new website', body: 'lorem ipsum...',author: 'mario', id:1 },
+        { title: 'Welcome party!', body: 'lorem ipsum...',author: 'yoshi', id:2 },
+        { title: 'Web dev top tips', body: 'lorem ipsum...',author: 'marlin', id:3 }
+    ]);
 
     return ( 
         <div className="home">
-            <h2>Homepage</h2>
-            <p>{name} is {age} years old</p>
-            <button onClick={handleClick}>Click</button>
+            {/* map method cycles through each val of an array an performs certain operation*/}
+            {/*blog is the val inhand*/}
+            {blogs.map((blog)=> ( 
+                <div className="blog-preview" key = {blog.id}> {/*key keeps track of changes*/}
+                    <h2>{blog.title}</h2>
+                    <p>Written by {blog.author}</p>
+                </div>
+            ))}
         </div>
      );
 }
