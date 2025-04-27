@@ -2,32 +2,25 @@ import { useState, useEffect } from "react";
 import BlogList from "./BlogList";
 
 const Home = () => {
-    const [blogs,setBlogs] = useState([
-        { title: 'My new website', body: 'lorem ipsum...',author: 'mario', id:1 },
-        { title: 'Welcome party!', body: 'lorem ipsum...',author: 'yoshi', id:2 },
-        { title: 'Web dev top tips', body: 'lorem ipsum...',author: 'mario', id:3 }
-    ]);
-
-    const [name, setName] = useState('mario');
-
-    const handleDelete = (id) => {
-        const newBlogs = blogs.filter(blog => blog.id !== id);
-        setBlogs(newBlogs);
-    }
+    const [blogs,setBlogs] = useState(null);
 
     useEffect(() => {
-        console.log("useEffect");
-        console.log(name);
-    }, [name]); 
-    // dependency array is passed as the second arg to the useEffect method when wedon't always want to re-render each time
-    // empty array renders only once
-    // we want to run this useEffect only when name changes so name becomes a dependency on it
+        fetch('http://localhost:8000/blogs')
+            .then(res => {
+                return res.json();
+            })
+            .then(data => {
+                setBlogs(data);
+            })
+    }, []); 
+    // you can't make this async as we cannot use await inside it, you can externalize the whole func make that asyn then use it in useEffect
+    // res is just the response object and inorder to get the data we use a func
+    // at the very beg it will give an error as blogs is set to null initially and is passed to the bloglist.js where it map is used, which cannot func on nulll
 
     return ( 
         <div className="home">
-            <BlogList blogs={blogs} title="All Blogs" handleDelete={handleDelete}/> 
-            <button onClick={() => setName('Luigi')}>Change Name</button>
-            <p>{name}</p>
+            {blogs && <BlogList blogs={blogs} title="All Blogs"/>}
+            {/* Runs only when blogs is not null*/}
         </div>
      );
 }
