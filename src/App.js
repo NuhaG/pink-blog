@@ -1,4 +1,5 @@
 import Navbar from './Navbar';
+import Create from './create';
 import Home from './home';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
@@ -9,10 +10,13 @@ function App() {
       <Navbar />
       <div className="content">
         <Switch>
-          <Route path="/">
+          <Route exact path="/"> {/*exact is used so that any other path including / does not display th home page*/}
             <Home />
           </Route>
-        </Switch> {/*makes sure that only one route shows at one time*/}
+          <Route exact path="/create">
+            <Create />
+          </Route>
+        </Switch> {/*this approach sends each call it to the server*/}
      </div>
     </div>
     </Router>
