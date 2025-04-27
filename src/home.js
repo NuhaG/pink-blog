@@ -5,13 +5,13 @@ const Home = () => {
     const [blogs,setBlogs] = useState([
         { title: 'My new website', body: 'lorem ipsum...',author: 'mario', id:1 },
         { title: 'Welcome party!', body: 'lorem ipsum...',author: 'yoshi', id:2 },
-        { title: 'Web dev top tips', body: 'lorem ipsum...',author: 'marlin', id:3 }
+        { title: 'Web dev top tips', body: 'lorem ipsum...',author: 'mario', id:3 }
     ]);
-    // two options to allow using the val def here in blogList.js -> write the whole def like above or use props (more reusable, allows to use in home component later on)
-    // props are a way to pass data from parents component to child component
+
     return ( 
         <div className="home">
-            <BlogList blogs={blogs} title="All Blogs"/> {/*Passes blogs as a prop*/}
+            <BlogList blogs={blogs} title="All Blogs"/> 
+            <BlogList blogs={blogs.filter((blog) => blog.author === 'mario')} title="Mario's Blogs"/> {/*filter method fire's a callback for each item in the array, if true keeps it in the array else filters it out and then returns the new final array*/}
         </div>
      );
 }
