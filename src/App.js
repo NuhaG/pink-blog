@@ -17,7 +17,7 @@ function App() {
           <Route exact path="/create">
             <Create />
           </Route>
-          <Route exact path="/blogs/:id"> {/*used so that it changes with each component*/}
+          <Route exact path="/blogs/:id">
             <BlogDetails />
           </Route>
         </Switch>
