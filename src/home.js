@@ -8,6 +8,8 @@ const Home = () => {
         { title: 'Web dev top tips', body: 'lorem ipsum...',author: 'mario', id:3 }
     ]);
 
+    const [name, setName] = useState('mario');
+
     const handleDelete = (id) => {
         const newBlogs = blogs.filter(blog => blog.id !== id);
         setBlogs(newBlogs);
@@ -15,14 +17,17 @@ const Home = () => {
 
     useEffect(() => {
         console.log("useEffect");
-        console.log(blogs);
-    }); 
-    // runs a func every render of the page, does not return anything takes a func that runs everytime there is a re-render  
-    // be careful about changing the state inside useEffect, cont loop , initial render will trigger useEffect func to run that would then update the state and the state would change and that would trigger a re-render -> useEffect-> loop
+        console.log(name);
+    }, [name]); 
+    // dependency array is passed as the second arg to the useEffect method when wedon't always want to re-render each time
+    // empty array renders only once
+    // we want to run this useEffect only when name changes so name becomes a dependency on it
 
     return ( 
         <div className="home">
             <BlogList blogs={blogs} title="All Blogs" handleDelete={handleDelete}/> 
+            <button onClick={() => setName('Luigi')}>Change Name</button>
+            <p>{name}</p>
         </div>
      );
 }
