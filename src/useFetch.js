@@ -6,8 +6,8 @@ const useFetch = (url) => {
     const [error,setError] = useState(null);
 
     useEffect(() => {
-        const abortCont = new AbortController(); {/*we use abort controller so that it stops fetching the data as soon as another link is cliked, like we don't want the home page content to continue to be fetched in the background when we call the newBlog page*/}
-
+        const abortCont = new AbortController(); 
+        
         setTimeout(() => {
             fetch(url, {signal: abortCont.signal})
             .then(res => {
@@ -32,7 +32,6 @@ const useFetch = (url) => {
         }, 1000);
 
         return () => abortCont.abort();
-        {/*above return func runs as soon as a link clicked, we use the signal to stop the fetch*/}
     }, [url]);
 
     return {data,isPending,error}
