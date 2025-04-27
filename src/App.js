@@ -10,13 +10,13 @@ function App() {
       <Navbar />
       <div className="content">
         <Switch>
-          <Route exact path="/"> {/*exact is used so that any other path including / does not display th home page*/}
+          <Route exact path="/">
             <Home />
           </Route>
           <Route exact path="/create">
             <Create />
           </Route>
-        </Switch> {/*this approach sends each call it to the server*/}
+        </Switch>
      </div>
     </div>
     </Router>
