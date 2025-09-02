@@ -10,21 +10,21 @@ const Create = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const blog = {title,body,author};
+    const blog = { title, body, author };
 
     setPending(true);
 
-    fetch('http://localhost:8000/blogs', {
-        method: 'POST',
-        headers: { "Content-Type" : "application/json"},
-        body: JSON.stringify(blog)
+    fetch("http://localhost:8000/blogs", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(blog),
     }).then(() => {
-        console.log("Blog added");
-        setPending(false);
-        history.push('/');
-    })
-  }
-  
+      console.log("Blog added");
+      setPending(false);
+      history.push("/");
+    });
+  };
+
   return (
     <div className="create">
       <h2>Add A New Blog</h2>
