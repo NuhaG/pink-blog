@@ -1,99 +1,181 @@
 @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap');
 
+body {
+  background: #111;
+  min-height: 100vh;
+  padding: 0;
+}
+
 * {
   margin: 0;
-  font-family: "Quicksand";
-  color: #333;
+  font-family: "Quicksand", sans-serif;
+  color: #ffd6e0;
+  box-sizing: border-box;
 }
+
 .navbar {
-  padding: 20px;
+  padding: 24px 32px;
   display: flex;
   align-items: center;
-  max-width: 600px;
-  margin: 0 auto;
-  border-bottom: 1px solid #f2f2f2;
+  max-width: 800px;
+  margin: 32px auto 0 auto;
+  border-radius: 18px;
+  background: #18181c;
+  border-bottom: 2px solid #ff4f91;
+  box-shadow: 0 2px 8px rgba(241, 53, 109, 0.10);
 }
+
 .navbar h1 {
-  color: #f1356d;
+  color: #ff4f91;
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: 2px;
 }
+
 .navbar .links {
   margin-left: auto;
+  display: flex;
+  gap: 12px;
 }
-.navbar .links {
-  margin-left: auto;
-}
+
 .navbar a {
-  margin-left: 16px;
   text-decoration: none;
-  padding: 6px;
-}
-.navbar a:hover {
-  color: #f1356d;
-}
-.content {
-  max-width: 600px;
-  margin: 40px auto;
-  padding: 20px;
-}
-.blog-preview{
-  padding: 10px 16px;
-  margin: 20px 0;
-  border-bottom: 1px solid #fafafa;
-}
-.blog-preview:hover{
-  box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.1);
-}
-.blog-preview h2{
-  font-size: 20px;
-  color: #f1356d;
-  margin-bottom: 8px;
-}
-.blog-preview a{
-  text-decoration: none;
-}
-.blog-details h2{
-  font-size: 20px;
-  color: #f1356d;
-  margin-bottom: 10px;
-}
-.blog-details div{
-  margin: 20px 0;
-}
-.blog-details button{
-  background: #f1356d;
-  color: #fff;
-  border: 0px;
-  padding: 8px;
+  padding: 8px 18px;
   border-radius: 8px;
-  cursor: pointer;
+  background: #23232a;
+  color: #ffb6d5;
+  font-weight: 500;
+  transition: background 0.2s, color 0.2s;
 }
+
+.navbar a:hover {
+  background: #ff4f91;
+  color: #fff;
+}
+
+.content {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 32px;
+  background: #18181c;
+  border-radius: 18px;
+  box-shadow: 0 4px 24px rgba(241, 53, 109, 0.07);
+}
+
+.blog-preview {
+  padding: 18px 24px;
+  margin: 24px 0;
+  border-radius: 14px;
+  background: #23232a;
+  border: 1px solid #ff4f91;
+  box-shadow: 0 2px 8px rgba(241, 53, 109, 0.05);
+  transition: box-shadow 0.2s, background 0.2s;
+}
+
+.blog-preview:hover {
+  box-shadow: 0 6px 18px rgba(241, 53, 109, 0.12);
+  background: #2a2a33;
+}
+
+.blog-preview h2 {
+  font-size: 1.3rem;
+  color: #ff4f91;
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+
+.blog-preview a {
+  text-decoration: none;
+}
+
+.blog-details h2 {
+  font-size: 1.3rem;
+  color: #ff4f91;
+  margin-bottom: 12px;
+  font-weight: 600;
+}
+
+.blog-details div {
+  margin: 24px 0;
+}
+
+.blog-details button {
+  background: linear-gradient(90deg, #ff4f91 60%, #ffb6d5 100%);
+  color: #fff;
+  border: none;
+  padding: 10px 22px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 600;
+  box-shadow: 0 2px 8px rgba(241, 53, 109, 0.09);
+  transition: background 0.2s;
+}
+
+.blog-details button:hover {
+  background: linear-gradient(90deg, #ffb6d5 0%, #ff4f91 100%);
+}
+
 .create {
-  max-width: 400px;
+  max-width: 450px;
   margin: 0 auto;
   text-align: center;
+  background: #23232a;
+  border-radius: 16px;
+  padding: 32px 24px;
+  box-shadow: 0 2px 12px rgba(241, 53, 109, 0.07);
+  border: 1px solid #ff4f91;
 }
+
 .create label {
   text-align: left;
   display: block;
+  margin-bottom: 6px;
+  font-weight: 500;
+  color: #ff4f91;
 }
+
 .create h2 {
-  font-size: 20px;
-  color: #f1356d;
+  font-size: 1.3rem;
+  color: #ff4f91;
   margin-bottom: 30px;
+  font-weight: 700;
 }
-.create input, .create textarea, .create select {
+
+.create input,
+.create textarea,
+.create select {
   width: 100%;
-  padding: 6px 10px;
-  margin: 10px 0;
-  border: 1px solid #ddd;
+  padding: 10px 14px;
+  margin: 12px 0;
+  border: 1px solid #ff4f91;
+  border-radius: 8px;
+  background: #18181c;
+  color: #ffd6e0;
   box-sizing: border-box;
   display: block;
+  font-size: 1rem;
+  transition: border 0.2s;
 }
+
+.create input:focus,
+.create textarea:focus,
+.create select:focus {
+  border: 1.5px solid #ff4f91;
+  outline: none;
+}
+
 .create button {
-  background: #f1356d;
+  background: linear-gradient(90deg, #ff4f91 60%, #ffb6d5 100%);
   color: #fff;
-  border: 0;
-  padding: 8px;
-  border-radius: 8px;
+  border: none;
+  padding: 10px 22px;
+  border-radius: 10px;
   cursor: pointer;
+  font-weight: 600;
+  box-shadow: 0 2px 8px rgba(241, 53, 109, 0.09);
+  transition: background 0.2s;
+}
+
+.create button:hover {
+  background: linear-gradient(90deg, #ffb6d5 0%, #ff4f91 100%);
 }
